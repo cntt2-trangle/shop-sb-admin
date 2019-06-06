@@ -26,7 +26,7 @@ public class MailService {
         // send email
         SimpleMailMessage mail = new SimpleMailMessage();
         mail.setTo(user.getEmail());
-        mail.setFrom("smthanh@gmail.com");
+        mail.setFrom("le7207902@gmail.com");
         mail.setSubject("Welcome to My Website");
         mail.setText("Hello, " + user.getFirstName() + " This is a cool email notificaiton");
         javaMailSender.send(mail);

@@ -5,7 +5,7 @@
 
 <head th:replace="admin/layout::head"></head>
 <head>
-    <title>Login - Shop Demo</title>
+    <title>Login</title>
 </head>
 <body class="bg-gradient-primary">
 
@@ -20,11 +20,12 @@
                 <div class="card-body p-0">
                     <!-- Nested Row within Card Body -->
                     <div class="row">
-                        <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                        <div class="col-lg-6 d-none d-lg-block bg-login-image"
+                             style="background-image: url(https://www.xahara.vn/wp-content/uploads/H%C3%ACnh-%E1%BA%A3nh-ch%C3%B3-husky-%C4%91%E1%BA%B9p.jpg)"></div>
                         <div class="col-lg-6">
                             <div class="p-5">
                                 <div class="text-center">
-                                    <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                    <h1 class="h4 text-gray-900 mb-4">Welcome to My Shop!</h1>
                                 </div>
                                 <form class="user" method="post" role="form" th:action="@{/login}">
                                     <div class="form-group">
@@ -56,7 +57,7 @@
                                     <a class="small" href="forgot-password">Forgot Password?</a>
                                 </div>
                                 <div class="text-center">
-                                    <a class="small" href="register">Create an Account!</a>
+                                    <a class="small" href="register">Create an Account</a>
                                 </div>
                             </div>
                         </div>

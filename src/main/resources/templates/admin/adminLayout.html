@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en"
       xmlns="http://www.w3.org/1999/xhtml"
@@ -53,16 +54,16 @@
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <a aria-controls="collapseTwo" aria-expanded="true" class="nav-link collapsed" data-target="#collapseTwo"
+            <a aria-controls="collapseTwo" aria-expanded="true" class="nav-link collapsed" data-target="#admin"
                data-toggle="collapse" href="#">
                 <i class="fas fa-fw fa-cog"></i>
-                <span>Components</span>
+                <span>Admin</span>
             </a>
-            <div aria-labelledby="headingTwo" class="collapse" data-parent="#accordionSidebar" id="collapseTwo">
+            <div aria-labelledby="headingTwo" class="collapse" data-parent="#accordionSidebar" id="admin">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Custom Components:</h6>
-                    <a class="collapse-item" href="buttons.html">Buttons</a>
-                    <a class="collapse-item" href="cards.html">Cards</a>
+                    <h6 class="collapse-header"> DETAIL :</h6>
+                    <a class="collapse-item" th:href="@{/admin/users}">Users</a>
+                    <a class="collapse-item" th:href="@{/admin/roles}">Roles</a>
                 </div>
             </div>
         </li>
@@ -70,22 +71,83 @@
         <!-- Nav Item - Utilities Collapse Menu -->
         <li class="nav-item">
             <a aria-controls="collapseUtilities" aria-expanded="true" class="nav-link collapsed"
-               data-target="#collapseUtilities" data-toggle="collapse" href="#">
+               data-target="#employees" data-toggle="collapse" href="#">
                 <i class="fas fa-fw fa-wrench"></i>
-                <span>Utilities</span>
+                <span>Employee Manager</span>
             </a>
             <div aria-labelledby="headingUtilities" class="collapse" data-parent="#accordionSidebar"
-                 id="collapseUtilities">
+                 id="employees">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Custom Utilities:</h6>
-                    <a class="collapse-item" href="utilities-color.html">Colors</a>
-                    <a class="collapse-item" href="utilities-border.html">Borders</a>
-                    <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                    <a class="collapse-item" href="utilities-other.html">Other</a>
+                    <a class="collapse-item" th:href="@{/admin/employees}">Employee Manager</a>
+                    <a class="collapse-item" th:href="@{/admin}">Subscribe manager</a>
                 </div>
             </div>
         </li>
 
+        <!-- Nav Item - Utilities Collapse Menu -->
+        <li class="nav-item">
+            <a aria-controls="collapseUtilities" aria-expanded="true" class="nav-link collapsed"
+               data-target="#customer" data-toggle="collapse" href="#">
+                <i class="fas fa-fw fa-wrench"></i>
+                <span>Customer Manager</span>
+            </a>
+            <div aria-labelledby="headingUtilities" class="collapse" data-parent="#accordionSidebar"
+                 id="customer">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" th:href="@{/admin/customers}">Customer Manager</a>
+                    <a class="collapse-item" th:href="@{/admin}">Subscribe manager</a>
+                </div>
+            </div>
+        </li>
+        <!-- Nav Item - Utilities Collapse Menu -->
+        <li class="nav-item">
+            <a aria-controls="collapseUtilities" aria-expanded="true" class="nav-link collapsed"
+               data-target="#order" data-toggle="collapse" href="#">
+                <i class="fas fa-fw fa-wrench"></i>
+                <span>Order Manager</span>
+            </a>
+            <div aria-labelledby="headingUtilities" class="collapse" data-parent="#accordionSidebar"
+                 id="order">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Detail : </h6>
+                    <a class="collapse-item" th:href="@{/admin/orders}">Order Manager</a>
+                    <a class="collapse-item" th:href="@{/admin/orderDetails}">Order Details</a>
+                    <a class="collapse-item" th:href="@{/admin}">Shipping status</a>
+                </div>
+            </div>
+        </li>
+        <!-- Nav Item - Utilities Collapse Menu -->
+        <li class="nav-item">
+            <a aria-controls="collapseUtilities" aria-expanded="true" class="nav-link collapsed"
+               data-target="#product" data-toggle="collapse" href="#">
+                <i class="fas fa-fw fa-wrench"></i>
+                <span>Product Manager</span>
+            </a>
+            <div aria-labelledby="headingUtilities" class="collapse" data-parent="#accordionSidebar"
+                 id="product">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Product detail:</h6>
+                    <a class="collapse-item" th:href="@{/admin/categories}">Categories</a>
+                    <a class="collapse-item" th:href="@{/admin/suppliers}">Suppliers</a>
+                    <a class="collapse-item" th:href="@{/admin/products}">All products</a>
+                </div>
+            </div>
+        </li>
+        <!-- Nav Item - Utilities Collapse Menu -->
+        <li class="nav-item">
+            <a aria-controls="collapseUtilities" aria-expanded="true" class="nav-link collapsed"
+               data-target="#shipper" data-toggle="collapse" href="#">
+                <i class="fas fa-fw fa-wrench"></i>
+                <span>Shipper Manager</span>
+            </a>
+            <div aria-labelledby="headingUtilities" class="collapse" data-parent="#accordionSidebar"
+                 id="shipper">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <a class="collapse-item" th:href="@{/admin/shippers}">Shipper Manager</a>
+                    <a class="collapse-item" th:href="@{/admin}">Subscribe manager</a>
+                </div>
+            </div>
+        </li>
         <!-- Divider -->
         <hr class="sidebar-divider">
 

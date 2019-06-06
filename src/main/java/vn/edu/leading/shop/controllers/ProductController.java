@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import vn.edu.leading.shop.models.ProductModel;
+import vn.edu.leading.shop.services.CategoryService;
 import vn.edu.leading.shop.services.ProductService;
+import vn.edu.leading.shop.services.SupplierService;
 
 import javax.validation.Valid;
 
@@ -18,56 +20,52 @@ import javax.validation.Valid;
 public class ProductController {
 
     private final ProductService productService;
+    private final CategoryService categoryService;
+    private final SupplierService supplierService;
 
-    public ProductController(ProductService productService) {
+    public ProductController(ProductService productService, CategoryService categoryService, SupplierService supplierService) {
         this.productService = productService;
+        this.categoryService = categoryService;
+        this.supplierService = supplierService;
     }
 
-    @GetMapping("/products")
-    public String list(Model model) {
-        model.addAttribute("products", productService.findAll());
-        return "products/list";
+    @GetMapping("/admin/products")
+    public String product(Model model)
+    {
+        model.addAttribute("products",productService.findAll());
+        model.addAttribute("categories", categoryService.findAll());
+        model.addAttribute("suppliers", supplierService.findAll());
+
+        return "admin/pages/products";
     }
 
-    @GetMapping("products/search")
-    public String search(@RequestParam("term") String term, Model model) {
-        if (StringUtils.isEmpty(term)) {
-            return "redirect:/products";
-        }
-        model.addAttribute("products", productService.search(term));
-        return "products/list";
-    }
-
-    @GetMapping("/products/add")
-    public String add(Model model) {
-        model.addAttribute("productModel", new ProductModel());
-        return "products/form";
-    }
-
-    @GetMapping("/products/{id}/edit")
-    public String edit(@PathVariable("id") Long id, Model model) {
-        model.addAttribute("productModel", productService.findById(id));
-        return "products/form";
-    }
-
-    @PostMapping("/products/save")
-    public String save(@Valid ProductModel product, BindingResult result, RedirectAttributes redirect) {
+    @PostMapping("/admin/products")
+    public String save(@Valid ProductModel product, BindingResult result, RedirectAttributes redirect, Model model) {
         if (result.hasErrors()) {
-            return "products/form";
+            return "admin/pages/products";
         }
         productService.save(product);
         redirect.addFlashAttribute("successMessage", "Saved product successfully!");
-        return "redirect:/products";
+        model.addAttribute("products",productService.findAll());
+        model.addAttribute("categories", categoryService.findAll());
+        model.addAttribute("suppliers", supplierService.findAll());
+        return "admin/pages/products";
     }
 
-    @GetMapping("/products/{id}/delete")
-    public String delete(@PathVariable Long id, RedirectAttributes redirect) {
+    @GetMapping("/admin/products/{id}/delete")
+    public String delete(@PathVariable Long id, RedirectAttributes redirect , Model model) {
         if (productService.delete(id)) {
             redirect.addFlashAttribute("successMessage", "Deleted product successfully!");
-            return "redirect:/products";
+            model.addAttribute("products",productService.findAll());
+            model.addAttribute("categories", categoryService.findAll());
+            model.addAttribute("suppliers", supplierService.findAll());
+            return "admin/pages/products";
         } else {
             redirect.addFlashAttribute("successMessage", "Not found!!!");
-            return "redirect:/products";
+            model.addAttribute("products",productService.findAll());
+            model.addAttribute("categories", categoryService.findAll());
+            model.addAttribute("suppliers", supplierService.findAll());
+            return "admin/pages/products";
         }
     }
 }

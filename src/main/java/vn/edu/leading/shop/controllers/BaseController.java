@@ -31,6 +31,9 @@ public class BaseController<T extends BaseModel<T>> {
         this.baseService = baseService;
     }
 
+    public BaseController() {
+    }
+
     public BaseRepository<T, ?> getBaseRepository() {
         return baseRepository;
     }
